@@ -48,11 +48,16 @@ function init(){
         cols[i] = new Column(x, y, width, height);
         // cols[i].draw(ctx);
     }
+    document.querySelector(".btnPlay").disabled = false;
+    document.querySelector(".btnPlay").style.cursor = "default";
 }
 
 function play(){
+    document.querySelector(".btnPlay").disabled = true;
+    document.querySelector(".btnPlay").style.cursor = "not-allowed";
     moves = bubbleSort(array);
 }
+
 
 
 animate();
