@@ -7,7 +7,7 @@ class Column{
         this.queue = [];
     }
 
-    moveTo(loc, yOffSet=1, frameCount=40){
+    moveTo(loc, yOffSet=1, frameCount=40){ // control column moving speed by changing frameCount lower no. is faster.
         for(let i=0; i<=frameCount; i++){
             const t = i/frameCount;
             const u = Math.sin(t*Math.PI);
@@ -15,6 +15,17 @@ class Column{
                 x:lerp(this.x, loc.x, t),
                 y:lerp(this.y, loc.y, t)+ u*this.width/2*yOffSet
                 
+            });
+        }
+    }
+
+    jump(frameCount = 30){ // this give jumping effect less frameCount faster jump.  
+        for(let i=1; i<=frameCount; i++){
+            const t = i/frameCount;
+            const u = Math.sin(t*Math.PI);
+            this.queue.push({
+                x:this.x,
+                y:this.y-u*this.width,
             });
         }
     }
