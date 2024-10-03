@@ -12,7 +12,7 @@ class Column{
         }
     }
 
-    moveTo(loc, yOffSet=1, frameCount=30){ // control column moving speed by changing frameCount lower no. is faster.
+    moveTo(loc, yOffSet=1, frameCount=20){ // control column moving speed by changing frameCount lower no. is faster.
         for(let i=0; i<=frameCount; i++){
             const t = i/frameCount;
             const u = Math.sin(t*Math.PI);
